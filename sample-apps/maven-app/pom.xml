@@ -49,27 +49,34 @@
 	</dependencyManagement>
 
   <dependencies>
-  <!-->
-    <dependency>
-      <groupId>org.eclipse.microprofile</groupId>
-      <artifactId>microprofile</artifactId>
-      <version>2.2</version>
-      <type>pom</type>
-      <scope>provided</scope>
-   </dependency>
-   -->
    <dependency>
 			<groupId>boost.boosters</groupId>
 			<artifactId>jaxrs</artifactId>
 		</dependency>
-    
-   <dependency>
-     <groupId>javax</groupId>
-     <artifactId>javaee-api</artifactId>
-     <version>8.0.1</version>
-     <scope>provided</scope>
-   </dependency>
-  
+    <dependency>
+			<groupId>boost.boosters</groupId>
+			<artifactId>cdi</artifactId>
+		</dependency>
+    <dependency>
+			<groupId>boost.boosters</groupId>
+			<artifactId>jsonb</artifactId>
+		</dependency>
+    <dependency>
+			<groupId>boost.boosters</groupId>
+			<artifactId>mpRestClient</artifactId>
+		</dependency>
+    <dependency>
+			<groupId>boost.boosters</groupId>
+			<artifactId>mpConfig</artifactId>
+		</dependency>
+    <dependency>
+			<groupId>boost.boosters</groupId>
+			<artifactId>mpHealth</artifactId>
+		</dependency>
+    <dependency>
+      <groupId>boost.boosters</groupId>
+      <artifactId>beanValidation</artifactId>
+    </dependency>
    <dependency>
         <groupId>org.eclipse.microprofile.sandbox</groupId>
         <artifactId>system-test</artifactId>
@@ -106,7 +113,6 @@
             </execution>
         </executions>
       </plugin>
-      
       <plugin>
 				<groupId>boost</groupId>
 				<artifactId>boost-maven-plugin</artifactId>
@@ -149,6 +155,10 @@
               <includes>
                 <include>**/it/*.java</include>
               </includes>
+              <systemProperties>
+                <MP_TEST_RUNTIME_URL>http://laptop-p7acskbj:9080/</MP_TEST_RUNTIME_URL>
+                <WLP_USR_DIR>${project.build.directory}/liberty/wlp/usr</WLP_USR_DIR>
+              </systemProperties>
             </configuration>
           </execution>
           <execution>
